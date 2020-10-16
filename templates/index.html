@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Uber Rides Prediction Model</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+    <style>
+
+       body{
+       background-image:url('https://png.pngtree.com/png-vector/20200224/ourlarge/pngtree-taxi-cityscapes-banner-for-public-transportation-website-in-blue-png-image_2152316.jpg');
+     
+       background-repeat: no-repeat;
+       background-attachment: fixed;  
+       background-size: cover;   
+    }
+    </style>
+        <h1 style="color:black">Uber Weekly Rides Analysis</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="Price per week" placeholder="Priceperweek" required="required">
+            <input type="text" name="Population" placeholder="Population" required="required">
+            <input type="text" name="Monthly income" placeholder="Monthlyincome" required="required">
+            <input type="text" name="Average parking per month" placeholder="Averageparkingpermonth" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        <p style="color:black"> {{ prediction_text }} </p>
+    </body>
+</html>
